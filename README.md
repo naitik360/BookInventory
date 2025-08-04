@@ -1,92 +1,129 @@
 # 📚 Book Inventory Management System
 
-A complete backend REST API built using **Java Spring Boot**, managing books, authors, and categories. Designed to demonstrate real-world practices like DTO usage, JPA relationships, validation, exception handling, and OpenAPI (Swagger) documentation.
+A complete backend **REST API** built using **Java Spring Boot**, managing books, authors, and categories.  
+Perfect for learning real-world development with JPA relationships, DTOs, validation, exception handling, and Swagger UI.
 
 ---
 
 ## 🚀 Features
 
-- Add / View / Delete books
-- Associate books with authors and categories
-- Fetch books by category or author
-- Validations for clean data input
-- Global error handling using `@RestControllerAdvice`
-- DTOs to decouple entities from the API
-- Database: MySQL (configurable)
-- Swagger/OpenAPI Documentation
+- ✅ Add, view, and delete books
+- ✅ Associate books with authors & categories
+- ✅ Add/view authors and categories
+- ✅ Validations using `@Valid` & `@NotBlank`
+- ✅ Global exception handling (`@RestControllerAdvice`)
+- ✅ DTO usage to decouple entity logic
+- ✅ Built-in Swagger (OpenAPI) documentation
+- ✅ Fully tested with Postman
 
 ---
 
-## 🛠️ Tech Stack
+## 🧰 Tech Stack
 
-| Layer              | Tech                             |
-|-------------------|----------------------------------|
-| Backend Framework | Spring Boot                      |
-| ORM               | JPA + Hibernate                   |
-| DB                | MySQL                             |
-| Validation        | Jakarta Bean Validation (`@Valid`)|
-| Docs              | Springdoc OpenAPI (Swagger)       |
-| Tools             | Maven, IntelliJ / VSCode          |
+| Layer         | Technology                      |
+|--------------|----------------------------------|
+| Framework    | Spring Boot (v3.5.4)             |
+| ORM          | Spring Data JPA (Hibernate)      |
+| DB           | MySQL                            |
+| Validation   | Jakarta Bean Validation          |
+| Docs         | SpringDoc OpenAPI Swagger        |
+| Tools        | Maven, IntelliJ / VSCode         |
 
 ---
 
-## 📁 Project Structure
+## 🗂️ Project Structure
 
-├── src/
-│ ├── main/
-│ │ ├── java/
-│ │ │ └── com/bookinventory/
-│ │ │ ├── controller/ # REST controllers
-│ │ │ ├── dto/ # DTOs for API requests/responses
-│ │ │ ├── entity/ # JPA entities
-│ │ │ ├── exception/ # Custom exception & handler
-│ │ │ ├── repository/ # Spring Data JPA Repositories
-│ │ │ └── service/ # Business logic services
-│ │ └── resources/
-│ │ └── application.properties # Configuration
-├── pom.xml # Maven dependencies
-└── README.md # You're here!
+BookInventory/
+├── controller/             # All REST API endpoints
+├── dto/                    # Data Transfer Objects
+├── entity/                 # JPA Entities
+├── repository/             # Spring Data JPA Repositories
+├── service/                # Business Logic (Service & Impl)
+├── exception/              # Global Exception Handlers
+├── resources/
+│   └── application.properties  # Spring Boot config
+└── BookInventoryApplication.java  # Main class
+
 
 
 ---
 
-## 🔗 API Endpoints
+## 📑 API Endpoints
 
 ### 📘 Book APIs
 
-| Method | URL                        | Description           | Input (JSON) |
-|--------|----------------------------|------------------------|---------------|
-| `POST`| `/api/books`               | Add a new book         | `{ title, description, price, authorId, categoryId }` |
-| `GET` | `/api/books`               | List all books         | – |
-| `GET` | `/api/books/{id}`          | Get book by ID         | – |
-| `DELETE`| `/api/books/{id}`        | Delete book by ID      | – |
+| Method | Endpoint         | Description          | Body Example |
+|--------|------------------|----------------------|--------------|
+| POST   | `/api/books`     | Add a book           | `{ title, description, price, authorId, categoryId }` |
+| GET    | `/api/books`     | Get all books        | – |
+| GET    | `/api/books/{id}`| Get book by ID       | – |
+| DELETE | `/api/books/{id}`| Delete book by ID    | – |
 
 ### 👨‍💼 Author APIs
 
-| Method | URL                         | Description           | Input (JSON) |
-|--------|-----------------------------|------------------------|---------------|
-| `POST`| `/api/authors`              | Add new author         | `{ name, email }` |
-| `GET` | `/api/authors`              | List all authors       | – |
+| Method | Endpoint           | Description         | Body Example |
+|--------|--------------------|---------------------|--------------|
+| POST   | `/api/authors`     | Add new author      | `{ name, email }` |
+| GET    | `/api/authors`     | Get all authors     | – |
 
 ### 🗂️ Category APIs
 
-| Method | URL                         | Description           | Input (JSON) |
-|--------|-----------------------------|------------------------|---------------|
-| `POST`| `/api/categories`           | Add new category       | `{ name }` |
-| `GET` | `/api/categories`           | List all categories    | – |
+| Method | Endpoint            | Description         | Body Example |
+|--------|---------------------|---------------------|--------------|
+| POST   | `/api/categories`   | Add new category    | `{ name }` |
+| GET    | `/api/categories`   | Get all categories  | – |
 
 ---
 
-## 🧪 Sample Request (Book Creation)
+## 📤 Sample Book JSON Payload
 
 ```json
-POST /api/books
-Content-Type: application/json
-
 {
   "title": "Spring Boot in Action",
-  "description": "A comprehensive guide to Spring Boot",
+  "description": "Comprehensive guide to Spring Boot",
   "price": 499.99,
   "authorId": 1,
   "categoryId": 2
 }
+
+💡 Swagger UI (Auto API Docs)
+After running the app, explore API docs via:
+
+🧾 Swagger UI: http://localhost:8080/swagger-ui/index.html
+
+📄 API Docs JSON: http://localhost:8080/v3/api-docs
+
+
+📁 Step 1: Configure application.properties
+properties
+spring.datasource.url=jdbc:mysql://localhost:3306/bookdb
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+
+▶️ Step 2: Build and Run
+# Build the project
+mvn clean install
+
+# Run the app
+mvn spring-boot:run
+
+⚠️ Error Response Format
+json
+{
+  "timestamp": "2025-08-04T22:15:28.592Z",
+  "message": "Author not found",
+  "path": "/api/books"
+}
+
+👨‍💻 Author
+Naitik Verma
+📧 naitikverma036@gmail.com
+💼 Full Stack Developer | Java • Spring Boot • React • Flutter
+🔗 LinkedIn
+
+👨‍💻 Author
+Naitik Verma
+📧 naitikverma036@gmail.com
+💼 Full Stack Developer | Java • Spring Boot • React • Flutter
+🔗 LinkedIn
