@@ -75,7 +75,7 @@ BookInventory/
 
 ---
 
-## 📤 Sample Book JSON Payload
+### 📤 Sample Book JSON Payload
 
 ```json
 {
@@ -84,42 +84,60 @@ BookInventory/
   "price": 499.99,
   "authorId": 1,
   "categoryId": 2
-}```
-
-### 💡 Swagger UI (Auto API Docs)
-After running the app, explore API docs via:
-
-🧾 Swagger UI: http://localhost:8080/swagger-ui/index.html
-
-📄 API Docs JSON: http://localhost:8080/v3/api-docs
+}
+```
 
 ---
 
-### 📁 Step 1: Configure application.properties
-properties
+### 💡 Swagger UI (Auto API Docs)
+
+After running the app, explore API docs via:
+
+- 🧾 Swagger UI: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)  
+- 📄 API Docs JSON: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+---
+
+### 📁 Step 1: Configure `application.properties`
+
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/bookdb
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
+```
+
+---
 
 ### ▶️ Step 2: Build and Run
+
+```bash
 # Build the project
 mvn clean install
 
 # Run the app
 mvn spring-boot:run
+```
 
-⚠️ Error Response Format
-json
+---
+
+### ⚠️ Error Response Format
+
+```json
 {
   "timestamp": "2025-08-04T22:15:28.592Z",
   "message": "Author not found",
   "path": "/api/books"
 }
+```
+
+---
 
 ### 👨‍💻 Author
-Naitik Verma
-📧 naitikverma036@gmail.com
-💼 Full Stack Developer | Java • Spring Boot • React • Flutter
-🔗 LinkedIn
+
+**Naitik Verma**  
+📧 [naitikverma036@gmail.com](mailto:naitikverma036@gmail.com)  
+💼 Full Stack Developer – Java | Spring Boot | React | Flutter  
+🔗 [LinkedIn](https://www.linkedin.com/)
+
 
